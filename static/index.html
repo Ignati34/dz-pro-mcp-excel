@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>Заявки · AI-помощник Pro</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Главная"><span class="brand-icon">▤</span><span>Заявки<span class="brand-muted"> / AI-помощник Pro</span></span></a>
+      <div class="header-actions"><span id="service-status" class="status"><i></i><span>Проверка Excel MCP…</span></span><button id="new-chat" class="button button-light">＋ Новый диалог</button></div>
+    </header>
+    <div class="layout">
+      <section class="chat-panel">
+        <div class="panel-heading"><div><div class="eyebrow">ДОМАШНЕЕ ЗАДАНИЕ · PRO</div><h1>Помощник по заявкам</h1><p>Добавляйте заявки и меняйте статусы командами на русском.</p></div><div class="avatar">▤</div></div>
+        <div id="messages" class="messages" aria-live="polite"><div class="welcome">Здравствуйте! Я работаю с листом «Заявки» через Excel MCP. Могу показать и отфильтровать заявки, добавить новую или предложить изменение статуса.</div></div>
+        <div class="composer-wrap">
+          <div class="suggestions"><button class="suggestion">Покажи заявки со статусом «В работе»</button><button class="suggestion">Добавь заявку от Анны Смирновой: ноутбук сильно тормозит</button></div>
+          <form id="chat-form" class="composer"><textarea id="message-input" rows="1" maxlength="4000" placeholder="Напишите команду…" aria-label="Ваш запрос"></textarea><button id="send-button" class="send-button" type="submit" aria-label="Отправить">↑</button></form>
+          <div class="composer-note">Перед изменением существующей заявки помощник запросит подтверждение.</div>
+        </div>
+      </section>
+      <aside class="context-panel">
+        <div class="context-title"><div><div class="eyebrow">EXCEL MCP · STDIO</div><h2>Заявки</h2></div><button id="refresh-requests" class="button button-light" title="Обновить">↻ Обновить</button></div>
+        <section id="requests-panel" class="requests-panel"><div id="requests-state" class="request-state">Загрузка из Excel MCP…</div><div class="table-wrap"><table><thead><tr><th>ID</th><th>Клиент</th><th>Проблема</th><th>Статус</th></tr></thead><tbody id="requests-body"></tbody></table></div></section>
+        <section class="info-card"><span class="info-icon">↗</span><div><h3>Локальная книга</h3><p><code>data/requests.xlsx</code> · лист «Заявки». Таблица перечитывается через инструмент MCP.</p></div></section>
+        <div class="context-footer"><span class="pulse"></span> Запись статуса — только после явного подтверждения</div>
+      </aside>
+    </div>
+    <footer>Отдельный проект Pro · Все операции Excel проходят через MCP</footer>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
