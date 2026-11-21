@@ -26,7 +26,7 @@
 
 ```powershell
 Set-Location "E:\Univer_AI\Разработка AI-агентов на Codex\Тема 9. AI-агенты с инструментами API, интернет, MCP и внешние сервисы\DZ-Pro"
-py -3.11 -m venv .venv
+if (!(Test-Path .venv)) { py -3.11 -m venv .venv }
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 pip install -r requirements.txt
